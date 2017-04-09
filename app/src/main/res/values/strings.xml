@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">FenderChallenge</string>
+
+    <string name="search_prompt">Type your search query here: (must be connected to internet)</string>
+    <string name="search_hint">E.g. AAPL</string>
+    <string name="search_button">Search</string>
+
+    <string name="stock_name">Company Name: %1$s</string>
+    <string name="stock_last_price">Stock Last Price: $%1$s</string>
+    <string name="stock_timestamp">Timestamp: %1$s</string>
+    <string name="stock_high">High price: $%1$s</string>
+    <string name="stock_low">Low price: $%1$s</string>
+    <string name="stock_open">Opening price: $%1$s</string>
+</resources>
