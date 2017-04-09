@@ -24,9 +24,18 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Main Activity launched at application start.
+ *
+ * @author Eugene Lee
+ */
 public class MainActivity extends AppCompatActivity {
 
-    final String LOOKUP_URL = "http://dev.markitondemand.com/MODApis/Api/v2/Lookup/json?input=";
+    /**
+     * URL that returns response when using the Company Lookup API.
+     */
+    private static final String LOOKUP_URL = "http://dev.markitondemand.com/MODApis/Api/v2/Lookup/json?input=";
+
     List<String> stockSymbol;
     List<String> stockName;
     List<String> stockExchange;
@@ -68,10 +77,23 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * This method determines whether the user input is not just whitespace.
+     *
+     * @param input User input provided in the EditText.
+     * @return True/False.
+     */
     protected boolean isAcceptable(String input) {
         return !(input.trim().isEmpty());
     }
 
+    /**
+     * This method retrieves the API result using an asynchronous task by concatenating the URL and the input.
+     *
+     * @param modaURL The API URL, whether or not it is a Lookup or a Quote
+     * @param input   User input provided in the EditText
+     * @return The retrieved JSON as a String.
+     */
     protected static String getJsonFromURL(String modaURL, String input) {
         String newURL = modaURL + input;
         String json = "";
@@ -84,6 +106,13 @@ public class MainActivity extends AppCompatActivity {
         return json;
     }
 
+    /**
+     * This method pulls a specific JSON attribute from the JSON and makes a simple list of them.
+     *
+     * @param json      JSON format as a String
+     * @param attribute Common attribute name from every JSON object
+     * @return List of all values belonging to the attribute key.
+     */
     protected List<String> getAttributesFromJson(String json, String attribute) {
         List<String> list = new ArrayList<>();
         try {
@@ -100,6 +129,9 @@ public class MainActivity extends AppCompatActivity {
         return list;
     }
 
+    /**
+     * Class providing an asynchronous task for retrieving data from a URL.
+     */
     private static class PullDataTask extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... params) {
@@ -116,11 +148,6 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
             return json;
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
         }
     }
 }

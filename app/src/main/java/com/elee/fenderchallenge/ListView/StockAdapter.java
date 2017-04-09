@@ -12,6 +12,11 @@ import com.elee.fenderchallenge.R;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * An ArrayAdapter for the ListView provided in MainActivity
+ *
+ * @author Eugene Lee
+ */
 public class StockAdapter extends ArrayAdapter<String> {
 
     private Context context;
@@ -19,6 +24,14 @@ public class StockAdapter extends ArrayAdapter<String> {
     private List<String> list2 = new ArrayList<>();
     private List<String> list3 = new ArrayList<>();
 
+    /**
+     * Creates a new StockAdapter object for use with the ListView class.
+     *
+     * @param c         The application's current context
+     * @param symbols   A List of values pertaining to the "Symbol" key
+     * @param names     A List of values pertaining to the "Name" key
+     * @param exchanges A List of values pertaining to the "Exchange" key
+     */
     public StockAdapter(Context c, List<String> symbols, List<String> names, List<String> exchanges) {
         super(c, -1, symbols);
         context = c;

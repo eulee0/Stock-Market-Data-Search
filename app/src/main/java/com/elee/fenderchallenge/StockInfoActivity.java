@@ -9,9 +9,18 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * Activity that shows detailed Stock Data.
+ * This activity starts on ListView element click, providing details on the company's stock.
+ *
+ * @author Eugene Lee
+ */
 public class StockInfoActivity extends AppCompatActivity {
 
-    final String QUOTE_URL = "http://dev.markitondemand.com/MODApis/Api/v2/Quote/json?symbol=";
+    /**
+     * URL that returns response when using the Stock Quote API.
+     */
+    private static final String QUOTE_URL = "http://dev.markitondemand.com/MODApis/Api/v2/Quote/json?symbol=";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
